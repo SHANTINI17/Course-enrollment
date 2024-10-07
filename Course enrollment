@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body bgcolor="black" text="white">
+    <center>
+    <h1>SELECT COURSE</h1>
+    <select name="course" id="course">
+        <option hidden>Select course</option>
+        <option value="ai">Artificial intelligence</option>
+        <option value="ml">Machine learning</option>
+        <option value="fs">Fullstack</option>
+        <option value="cs">Cyber security</option>
+    </select>
+    <div id="display" style="padding-top: 10px;">
+     
+    </div>
+</center>
+<script>
+    const coursedetails={
+        "ai":{
+        name:"Artificial intelligence",
+        code:"AI01",
+        enrolled:150
+        },
+        "ml":{
+            name:"Machine learning",
+            code:"ML02",
+            enrolled:120
+        },
+        "fs":{
+            name:"Fullstack",
+            code:"FS03",
+            enrolled:100
+        },
+        "cs":{
+            name:"Cyber security",
+            code:"CS04",
+            enrolled:90
+        }
+    };
+        var selectcourse=document.getElementById("course");
+        var displaycourse=document.getElementById("display");
+        selectcourse.addEventListener("change",function(){
+            var selectedcourse=selectcourse.value;
+        if(selectedcourse){
+            var course=coursedetails[selectedcourse];
+            displaycourse.innerHTML=`Course name:${course.name}<br>
+            Course code:${course.code}<br>
+            students enrolled:${course.enrolled}`
+        }
+        else{
+            displaycourse.innerHTML="";
+        }
+    });
+</script>
+</body>
+</html>
